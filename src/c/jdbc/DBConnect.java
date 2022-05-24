@@ -26,5 +26,25 @@ public class DBConnect {
 		}
 	}
 	
+	public int executeUpdate(String q) {
+		try {
+			return st.executeUpdate(q);
+		} catch (SQLException e) {
+			// TODO SQL EXCEPTION
+			return 0;
+		}
+	}
+	
+	public ResultSet executeQuery(String q) {
+		try {
+			rs = st.executeQuery(q);
+			st.close();
+			return rs;
+		} catch (SQLException e) {
+			// TODO SQL EXCEPTION
+			return null;
+		}
+	}
+	
 	
 }

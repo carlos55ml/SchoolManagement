@@ -64,7 +64,7 @@ public class DBConnect_template {
 
 	public void InsertarPersonas() throws SQLException, NumberFormatException, IOException {
 		try {
-			BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+			
 			int user;
 			String name;
 			String mail;
@@ -136,7 +136,7 @@ public class DBConnect_template {
 	}// fin del metodo InsertarPersonas()
 
 	public void ActualizarPersonas() {
-		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		
 		int user;
 		String name = null;
 		String mail = null;
@@ -198,7 +198,7 @@ public class DBConnect_template {
 	}// fin del metodo ActualizarPersonas()
 
 	public void EliminarPersonas() {
-		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		
 		int user;
 
 		try {
