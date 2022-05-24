@@ -8,7 +8,7 @@ public class DBConnect {
 	PreparedStatement stmt = null;
 	private ResultSet rs;
 	
-	private String conData = "jdbc:mysql://localhost:3389/carlosmoran_schmngmnt";
+	private String conData = "jdbc:mysql://localhost:3306/carlosmoran_schmngmnt";
 	private String dbUser = "root";
 	private String dbPass = "root";
 	
@@ -19,10 +19,13 @@ public class DBConnect {
 			st= con.createStatement();
 		} catch (SQLException ex) {
 			// TODO sql exception
+			System.out.println("SQL EXCEPTION");
 		} catch (ClassNotFoundException ex) {
 			// TODO class not found exception
+			System.out.println("CLASS NOT FOUND EXCEPTION");
 		} catch (Exception ex) {
 			// TODO generic exception
+			System.out.println("GENERIC EXCEPTION");
 		}
 	}
 	
