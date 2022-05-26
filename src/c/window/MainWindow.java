@@ -1,13 +1,21 @@
 package c.window;
 
 import javax.swing.*;
+
+import c.app.App;
+import c.log.Log;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class MainWindow {
 
 	public JFrame frame;
 	private JTextField tfProfCount;
-	private JTextField tfCounAlum;
+	private JTextField tfCountAlum;
 
 	/**
 	 * Create the application.
@@ -21,6 +29,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		
 		frame.setBounds(100, 100, 815, 516);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -81,12 +90,44 @@ public class MainWindow {
 		btnBorrarAlumno.setBounds(509, 330, 187, 43);
 		frame.getContentPane().add(btnBorrarAlumno);
 		
-		tfCounAlum = new JTextField();
-		tfCounAlum.setEditable(false);
-		tfCounAlum.setColumns(10);
-		tfCounAlum.setBounds(630, 82, 86, 33);
-		frame.getContentPane().add(tfCounAlum);
+		tfCountAlum = new JTextField();
+		tfCountAlum.setEditable(false);
+		tfCountAlum.setColumns(10);
+		tfCountAlum.setBounds(630, 82, 86, 33);
+		frame.getContentPane().add(tfCountAlum);
 		
+		
+		btnPCreate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				App.createProf();
+				
+			}
+			
+		});
+		
+		btnACreate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+			
+		});
+		
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+				Log.debug("Main Window Opened");
+				tfProfCount.setText(""+App.getNumProfs());
+				tfCountAlum.setText(""+App.getNumAlumn());
+				
+			}
+		});
 		
 	}
 }

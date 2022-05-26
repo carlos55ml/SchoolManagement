@@ -31,6 +31,8 @@ public class DBConnect {
 			if (st==null) {
 				Log.error("La app no ha podido conectarse a la base de datos. Cerrando CODIGO 99.");
 				System.exit(99);
+			} else {
+				Log.debug("Succesfully connected to database.");
 			}
 		}
 	}

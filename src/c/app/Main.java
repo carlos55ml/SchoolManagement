@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import c.jdbc.DBConnect;
 import c.log.Log;
+import c.window.CreateWindow;
 import c.window.MainWindow;
 
 public class Main {
@@ -18,8 +19,10 @@ public class Main {
 			public void run() {
 				try {
 					MainWindow mainWindow = new MainWindow();
+					CreateWindow crearProfesor = new CreateWindow(1);
+					CreateWindow crearAlumno = new CreateWindow(2);
 					mainWindow.frame.setVisible(true);
-					App.init(mainWindow);
+					App.init(mainWindow, crearProfesor, crearAlumno);
 					
 				} catch (Exception e) {
 					e.printStackTrace();

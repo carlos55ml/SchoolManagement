@@ -1,12 +1,18 @@
 package c.window;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import c.log.Log;
+
+import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class CreateWindow {
 
-	private JFrame frame;
+	public JFrame frmCreate;
 
 	/**
 	 * Launch the application.
@@ -21,7 +27,16 @@ public class CreateWindow {
 	/**
 	 * Create the application.
 	 */
-	public CreateWindow() {
+	public String type;
+	public int t;
+	
+	public CreateWindow(int t) {
+		this.t = t;
+		if(t==1) {
+			type = "profesor";
+		} else {
+			type = "alumno";
+		}
 		initialize();
 	}
 
@@ -29,9 +44,24 @@ public class CreateWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCreate = new JFrame();
+		frmCreate.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(WindowEvent e) {
+				Log.debug("Ventana Crear "+type+" cerrada");
+			}
+		});
+		frmCreate.setVisible(false);
+		frmCreate.setTitle("Crear "+type);
+		frmCreate.setBounds(100, 100, 788, 429);
+		frmCreate.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmCreate.getContentPane().setLayout(null);
+		
+		
+		
+		JLabel lblInfoCreate = new JLabel("Crear "+type);
+		lblInfoCreate.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblInfoCreate.setBounds(253, 11, 234, 41);
+		frmCreate.getContentPane().add(lblInfoCreate);
 	}
-
 }

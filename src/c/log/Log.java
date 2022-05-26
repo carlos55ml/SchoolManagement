@@ -9,15 +9,15 @@ public class Log {
 	
 	public static void debug(String s) {
 		now = LocalDateTime.now(); 
-		System.out.println("[DEBUG - "+dtf.format(now)+"]: "+s);
+		System.out.print("\n[DEBUG - "+dtf.format(now)+"]: "+s);
 	}
 	
 	public static void warn(String s) {
 		now = LocalDateTime.now(); 
-		System.out.println("[WARN - "+dtf.format(now)+"]: "+s);
+		System.out.print("\n[WARN - "+dtf.format(now)+"]: "+s);
 	}
 	public static void error(String s) {
 		now = LocalDateTime.now(); 
-		System.out.println("[ERROR - "+dtf.format(now)+"]: "+s);
+		System.out.print("\n[ERROR - "+dtf.format(now)+"]: "+s);
 	}
 }
